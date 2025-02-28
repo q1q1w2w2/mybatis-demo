@@ -3,6 +3,7 @@ package com.example.mybatis_demo.mapper;
 import com.example.mybatis_demo.domain.User;
 import org.apache.ibatis.annotations.*;
 
+@CacheNamespace(size = 512)
 @Mapper
 public interface UserMapper {
 

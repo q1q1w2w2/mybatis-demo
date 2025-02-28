@@ -31,4 +31,10 @@ public class UserController {
         User user = userService.findUserByUsername(username);
         return ResponseEntity.ok().body(user);
     }
+
+    @GetMapping("/api/user/test")
+    public ResponseEntity test(@RequestParam("username") String username) {
+        userService.test(username);
+        return ResponseEntity.ok().body("!");
+    }
 }
