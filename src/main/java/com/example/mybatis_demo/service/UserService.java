@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,6 +30,10 @@ public class UserService {
     public User findUserByUsername(String username) {
         Optional<User> optionalUser = Optional.ofNullable(userMapper.findByUsername(username));
         return optionalUser.orElseThrow(() -> new RuntimeException("그런사람없음"));
+    }
+
+    public List<User> findAll() {
+        return userMapper.findAll();
     }
 
     @Transactional(readOnly = true)
