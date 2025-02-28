@@ -31,6 +31,7 @@ public class UserService {
         return optionalUser.orElseThrow(() -> new RuntimeException("그런사람없음"));
     }
 
+    @Transactional(readOnly = true)
     public void test(String username) {
         userMapper.findByUsername(username);
         userMapper.findByUsername(username);
